@@ -43,3 +43,12 @@
     	for j in range(i+1,len(nums)):
 		if nums[j] + nums[i] == target:
 			return(i, j)
+
+# Using a map to track the diff
+    m = {}
+    for i,n in enumerate(nums):
+        diff = target-n
+        if diff in m :
+            return[m[diff],i]
+        else:
+            m[n] = i
