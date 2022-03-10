@@ -39,16 +39,16 @@
 
 
 # Brute Force
-    for i in range(len(nums)):			#从第一项开始循环
-    	for j in range(i+1,len(nums)):		
-		if nums[j] + nums[i] == target:
-			return(i, j)
+    for i in range(len(nums)):				#从第一项开始循环
+    	for j in range(i+1,len(nums)):			#从元素i的后一项开始
+		if nums[j] + nums[i] == target: 	#如果元素i和元素j的和为target
+			return(i, j)			#则返回值（i，j），循环结束
 
 # Using a map to track the diff
-    m = {}
-    for i,n in enumerate(nums): 
-        diff = target-n
-        if diff in m :
+    m = {}				#构建空dictionary
+    for i,n in enumerate(nums): 	#使用enumerate对nums中元素编号，其中i为编号，n为元素
+        diff = target-n			#对每一个n，有diff = target - n
+        if diff in m :			#如果diff在字典m中，则返回m中diff所对应的元素编号
             return[m[diff],i]
-        else:
+        else:				#不在，则将元素n添加到字典中，对应编号为i
             m[n] = i
