@@ -42,10 +42,18 @@
 			m.append(num)
 		return False
 # Use Set to Track （admitted）
+	class Solution:
+	    def containsDuplicate(self, nums: List[int]) -> bool:
+		HashSet = set()
+		for n in nums:
+		    if n in HashSet:
+			return True
+		    HashSet.add(n)
+		return False
 
 
+* [对于几种python数据解构的解释](https://medium.com/kung-%E7%9A%84%E6%97%A5%E5%B8%B8/python-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-006-%E5%BA%8F%E5%B0%8D-tuple-%E9%9B%86%E5%90%88-set-%E8%88%87%E5%AD%97%E5%85%B8-dict-33186c42049c)
 
-* 对于几种python数据解构的解释：https://medium.com/kung-%E7%9A%84%E6%97%A5%E5%B8%B8/python-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-006-%E5%BA%8F%E5%B0%8D-tuple-%E9%9B%86%E5%90%88-set-%E8%88%87%E5%AD%97%E5%85%B8-dict-33186c42049c *
 # Samrt Cheated Way with Set（admitted）
 	class Solution:
 	    def containsDuplicate(self, nums: List[int]) -> bool:
