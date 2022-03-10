@@ -30,46 +30,46 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 </div>
 
 # Brute Force 1（TLE）
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        m = [0]
-        c = 0
-        for i in prices:
-            for j in prices[c+1::]:
-                profit = j-i
-                if profit not in m and profit > 0:
-                    m.append(profit)
-            c += 1
-        return max(m)
+	class Solution:
+	    def maxProfit(self, prices: List[int]) -> int:
+		m = [0]
+		c = 0
+		for i in prices:
+		    for j in prices[c+1::]:
+			profit = j-i
+			if profit not in m and profit > 0:
+			    m.append(profit)
+		    c += 1
+		return max(m)
 	
 # Brute Force 2（TLE）
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        m = 0
-        c = 0
-        for i in prices:
-            for j in prices[c+1::]:
-                profit = j-i
-                if profit > m :
-                    m = profit
-            c += 1
-        return m
+	class Solution:
+	    def maxProfit(self, prices: List[int]) -> int:
+		m = 0
+		c = 0
+		for i in prices:
+		    for j in prices[c+1::]:
+			profit = j-i
+			if profit > m :
+			    m = profit
+		    c += 1
+		return m
 
 # Product from two ends (Submitted)
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        profit = 0
-        n = len(prices)
-        if n == 1 :
-            return profit
-        i = 0
-        left = prices[i]
-        while i < n-1:
-            i += 1
-            right = prices[i]
-            diff = right - left
-            if diff > profit :
-                profit = diff
-            elif diff < 0 :
-                left = right
-        return profit
+	class Solution:
+	    def maxProfit(self, prices: List[int]) -> int:
+		profit = 0
+		n = len(prices)
+		if n == 1 :
+		    return profit
+		i = 0
+		left = prices[i]
+		while i < n-1:
+		    i += 1
+		    right = prices[i]
+		    diff = right - left
+		    if diff > profit :
+			profit = diff
+		    elif diff < 0 :
+			left = right
+		return profit
