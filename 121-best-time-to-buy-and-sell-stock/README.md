@@ -41,6 +41,8 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 			    m.append(profit)
 		    c += 1
 		return max(m)
+		
+收集所有大于 0 的 profit，然后返回最大的
 	
 # Brute Force 2（TLE）
 	class Solution:
@@ -54,17 +56,19 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 			    m = profit
 		    c += 1
 		return m
+		
+设 m = 0，当 profit 大于 m 时，更新 m 的值
 
 # Product from two ends (Submitted)
 	class Solution:
 	    def maxProfit(self, prices: List[int]) -> int:
 		profit = 0
 		n = len(prices)
-		if n == 1 :
+		if n == 1 :		# 特殊情况，只有一天时，不买入不卖出，profit 为 0
 		    return profit
 		i = 0
-		left = prices[i]
-		while i < n-1:
+		left = prices[i] 	# 设置左右指针，当 diff 比 profit 大时，更新 profit，当 diff 小于 0 时，左指针移到右指针处。
+		while i < n-1:		#每个循环右指针后移一位。
 		    i += 1
 		    right = prices[i]
 		    diff = right - left
@@ -73,3 +77,5 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 		    elif diff < 0 :
 			left = right
 		return profit
+
+
