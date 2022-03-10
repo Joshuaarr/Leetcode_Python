@@ -5,9 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # Brute Force
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[j] + nums[i] == target:
-                    return(i, j)
+        # Using a map
+        m = {}
+        for i,n in enumerate(nums):
+            diff = target-n
+            if diff in m :
+                return[m[diff],i]
+            else:
+                m[n] = i
         
