@@ -31,6 +31,7 @@
 		    else :
 			i += 1
 		return False
+		
 # Use List to Track（TLE）
 	class Solution:
 	    def containsDuplicate(self, nums: List[int]) -> bool:
@@ -41,6 +42,7 @@
 		    else :
 			m.append(num)
 		return False
+		
 # Use Set to Track （admitted）
 	class Solution:
 	    def containsDuplicate(self, nums: List[int]) -> bool:
@@ -50,11 +52,12 @@
 			return True
 		    HashSet.add(n)
 		return False
+set是无序的不重复的集合，因此虽然上面两种解法的思路几乎是一样的，set不会超时，list会。
 
-
-* [对于几种python数据解构的解释](https://medium.com/kung-%E7%9A%84%E6%97%A5%E5%B8%B8/python-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-006-%E5%BA%8F%E5%B0%8D-tuple-%E9%9B%86%E5%90%88-set-%E8%88%87%E5%AD%97%E5%85%B8-dict-33186c42049c)
+* [对于几种python数据结构的解释](https://medium.com/kung-%E7%9A%84%E6%97%A5%E5%B8%B8/python-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-006-%E5%BA%8F%E5%B0%8D-tuple-%E9%9B%86%E5%90%88-set-%E8%88%87%E5%AD%97%E5%85%B8-dict-33186c42049c)
 
 # Samrt Cheated Way with Set（admitted）
 	class Solution:
 	    def containsDuplicate(self, nums: List[int]) -> bool:
 		return len(nums) > len(set(nums))
+利用set的性质，将nums list转为set之后起到去重的作用，因此只要对比长度就可以了。此时若原长更长（存在重复值）则返回True，若等长则返回False.
