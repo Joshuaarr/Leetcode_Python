@@ -68,7 +68,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 		    return profit
 		i = 0
 		left = prices[i] 	# 设置左右指针，当 diff 比 profit 大时，更新 profit，当 diff 小于 0 时，左指针移到右指针处。
-		while i < n-1:		#每个循环右指针后移一位。
+		while i < n-1:		# 每个循环右指针后移一位。
 		    i += 1
 		    right = prices[i]
 		    diff = right - left
