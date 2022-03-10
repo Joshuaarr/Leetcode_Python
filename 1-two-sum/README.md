@@ -39,14 +39,14 @@
 
 
 # Brute Force
-    for i in range(len(nums)):
-    	for j in range(i+1,len(nums)):
+    for i in range(len(nums)):			#从第一项开始循环
+    	for j in range(i+1,len(nums)):		
 		if nums[j] + nums[i] == target:
 			return(i, j)
 
 # Using a map to track the diff
     m = {}
-    for i,n in enumerate(nums):
+    for i,n in enumerate(nums): 
         diff = target-n
         if diff in m :
             return[m[diff],i]
