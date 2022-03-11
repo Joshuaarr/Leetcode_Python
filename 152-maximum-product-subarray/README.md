@@ -37,12 +37,12 @@
 	    def maxProduct(self, nums: List[int]) -> int:
 		n = len(nums)
 
-		if n == 1:  #特殊情况
+		if n == 1:  			# 特殊情况
 		    return nums[0]
 
 		i = 0
 		pro1 = nums[0]
-		while i < len(nums): # 一位位遍历
+		while i < len(nums): 		# 一位位遍历
 		    j = i
 		    pro2 = 1
 		    while j < len(nums):
