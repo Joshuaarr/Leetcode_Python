@@ -24,3 +24,63 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Can you solve the problem in <code>O(1)&nbsp;</code>extra&nbsp;space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
 </div>
+
+# 分情况，除法
+	class Solution:
+	    def productExceptSelf(self, nums: List[int]) -> List[int]:
+		#分成有0和没0的情况，有两个及以上零输出0；只有一个零的除了零处以外输出零
+		n = nums.count(0)
+		if n == 0:
+		    total = 1
+		    for num in nums :
+			total *= num
+		    product = []
+		    for i in range(len(nums)) :
+			product.append(int(total/nums[i]))
+		elif n > 1 :
+		    n = len(nums)
+		    product = [0]*n
+		else :
+		    m = len(nums)
+		    product = [0]*m
+		    i = 0
+		    while i < m :
+			if nums[i] == 0 :
+			    product[i] = 1
+			    j = 0
+			    while j < m:
+				if j != i :
+				    product[i] *= nums[j]
+				j += 1
+			i += 1
+		return product
+
+# 储存从左到右的乘积
+	class Solution:
+	    def productExceptSelf(self, nums: List[int]) -> List[int]:
+		prefix = 1 
+		i = 0
+		product = [1] * len(nums)
+		
+		while i < len(nums) :
+		    product[i] = prefix
+		    prefix = prefix * nums[i]
+		    i += 1
+		postfix = 1
+		i = 1
+		while i <= len(nums) :
+		    product[-i] = product[-i] * postfix
+		    postfix = postfix * nums[-i]
+		    i += 1
+		return(product)
+		
+当初始值为： ｜1｜2｜3｜4｜
+
+第一轮输出为：	   ｜1 ｜1 ｜2｜6｜24｜
+
+第二轮输出为：｜24｜24｜12｜4｜1｜
+
+故结果为：       ｜24｜12｜8｜6｜
+
+
+
