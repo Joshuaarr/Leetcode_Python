@@ -28,3 +28,44 @@
 	<li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 </div>
+
+
+
+
+# Brute Force (TLE)
+	class Solution:
+	    def maxProduct(self, nums: List[int]) -> int:
+		n = len(nums)
+
+		if n == 1:  #特殊情况
+		    return nums[0]
+
+		i = 0
+		pro1 = nums[0]
+		while i < len(nums): # 一位位遍历
+		    j = i
+		    pro2 = 1
+		    while j < len(nums):
+			pro2 *= nums[j]
+			if pro2 >= 0 :
+			    pro1 = max(pro1, pro2)
+			j += 1
+		    i += 1
+		return pro1
+		
+# Save the current max and min (Accepted)
+	class Solution:
+	    def maxProduct(self, nums: List[int]) -> int:
+		res = max(nums)				# 初始最大值设为 nums 中的最大值
+		curMax, curMin = 1, 1
+
+		for n in nums:
+		    if n == 0:
+			curMax, curMin = 1, 1 		# 当遇到 0 时重置 Max 和 Min 为 1
+			continue
+		    tmp = n * curMax 			# 注意在这里记录 n * curMax， 不然 curMin 那里用的是乘 n^2 的值
+		    curMax = max(tmp, n * curMin, n)
+		    curMin = min(tmp, n * curMin, n)
+		    res = max(res, curMax)
+		return res
+        
