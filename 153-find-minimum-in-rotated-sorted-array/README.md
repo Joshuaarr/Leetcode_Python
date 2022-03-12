@@ -44,3 +44,25 @@
 	<li><code>nums</code> is sorted and rotated between <code>1</code> and <code>n</code> times.</li>
 </ul>
 </div>
+
+# 二分法
+	class Solution:
+	    def findMin(self, nums: List[int]) -> int:
+		l = 0
+		r = len(nums) - 1
+		if nums[r] >= nums[l]:		# 特殊情况，顺序元素或只有一个元素
+		    return nums[l]
+		    
+		while r > l:			# 非顺序，大于一个元素，使用二分法
+		    mid = (r + l)//2
+		    if nums[mid] > nums[l]:
+			l = mid
+		    else:
+			r = mid
+		return nums[mid+1]
+
+# cheating method
+	class Solution:
+	    def findMin(self, nums: List[int]) -> int:
+		return min(nums)
+                
