@@ -38,3 +38,23 @@
 			return r
 		    r -= 1
 		return -1
+
+# Binary Search
+	class Solution:
+	    def search(self, nums: List[int], target: int) -> int:
+		l, r = 0, len(nums) - 1
+		while l <= r:
+		    mid = (l + r)//2
+		    if nums[mid] == target: 				# 这一步好聪明，直接判断然后输出 mid
+			return mid
+		    if nums[mid] >= nums[l]:				
+			if nums[l] <= target and target < nums[mid]:	# 如果 l < mid, 且 target 落在 l 和 mid 中间，则左移； 此外右移
+			    r = mid -1
+			else:
+			    l = mid + 1
+		    else:
+			if nums[mid] < target and target <= nums[r]:	# 如果 mid < l, 且 target 落在 mid 和 r 中间，则右移； 此外左移
+			    l = mid + 1
+			else:
+			    r = mid - 1
+		return -1
