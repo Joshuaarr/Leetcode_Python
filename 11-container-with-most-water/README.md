@@ -29,3 +29,58 @@
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 </div>
+
+
+# Brute Force (TLE)
+	class Solution:
+	    def maxArea(self, height: List[int]) -> int:
+		maxV = 0
+		n = len(height)
+		i = 0
+		while i < n:
+		    j = n - 1
+		    while j > i:
+			Volumn = min(height[i],height[j]) * (j - i) # 改进点
+			maxV = max(maxV, Volumn)
+			j -= 1
+		    i += 1
+		return maxV
+
+# Brute Force 改进 （TLE）
+	class Solution:
+	    def maxArea(self, height: List[int]) -> int:
+		maxV = 0
+		n = len(height)
+		i = 0
+		while i < n: 				# HERE
+		    j = n - 1
+		    while j > i:
+			width = j - i
+			if height[i] < height[j]: 	# 对比之后省去一次乘法，但还是超时
+			    Volumn = height[i] * width
+			    j = 0
+			else:
+			    Volumn = height[j] * width
+			    j -= 1
+			maxV = max(maxV, Volumn)
+		    i += 1
+		return maxV
+不需要在 HERE 处对i进行遍历，哪边边短哪边缩进一位比较好， 也可以省去一次判断。
+
+# Strink from two end (Accepted)
+	class Solution:
+	    def maxArea(self, height: List[int]) -> int:
+		maxV = 0
+		n = len(height)
+		i = 0
+		j = n - 1
+		while i < n and j > 0:
+		    width = j - i
+		    if height[i] < height[j]:
+			Volumn = height[i] * width
+			i += 1
+		    else:
+			Volumn = height[j] * width
+			j -= 1
+		    maxV = max(maxV, Volumn)
+		return maxV
