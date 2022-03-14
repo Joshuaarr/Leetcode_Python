@@ -38,3 +38,14 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> If this function is called many times, how would you optimize it?</div>
+
+
+# 依次除以 2
+	class Solution:
+	    def hammingWeight(self, n: int) -> int:
+		count = 0
+		while n:
+		    count += n % 2
+		    n = n >> 1
+		return count
+        
