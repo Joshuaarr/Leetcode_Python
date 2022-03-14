@@ -31,3 +31,8 @@
 1. 0x 是十六进制，每个 f 是二进制中的四个 1， 所以这里 mask 为二进制中的 32 个 1
 2. and：& 为当同位都为 1 时取 1，其余情况取 0
 3. xor：^ 为当同位相异时取 1，其余情况取 0
+
+# Cheating method
+	class Solution:
+	    def getSum(self, a: int, b: int) -> int:
+		return sum([a,b])
