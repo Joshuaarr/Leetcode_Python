@@ -48,4 +48,17 @@
 		    count += n % 2
 		    n = n >> 1
 		return count
-        
+# n and n - 1
+	class Solution:
+	    def hammingWeight(self, n):
+		ans = 0
+		while n:
+		    n &= (n-1)
+		    ans += 1
+		return ans
+If n = XXXXXX1000, then n - 1 is XXXXXX0111. n & (n - 1) will be XXXXXX0000 which is just remove the last significant 1
+
+# Build in function
+	class Solution:
+	    def hammingWeight(self, n):
+		return bin(n).count('1')
