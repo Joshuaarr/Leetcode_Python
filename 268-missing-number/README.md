@@ -35,3 +35,16 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you implement a solution using only <code>O(1)</code> extra space complexity and <code>O(n)</code> runtime complexity?</p>
 </div>
+
+# Brute Force
+	class Solution:
+	    def missingNumber(self, nums: List[int]) -> int:
+		for num in range(len(nums) + 1):
+		    if num not in nums:
+			return num
+			
+# See which number is missing
+	class Solution:
+	    def missingNumber(self, nums: List[int]) -> int:
+		n = len(nums)
+		return int(n * (n + 1) * 0.5) - sum(nums)
