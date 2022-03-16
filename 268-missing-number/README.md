@@ -56,4 +56,23 @@
 		for i in range(len(nums)): 	# 这里相当于对 0 到 n - 1 进行求和，同时减去 sum(nums)
 		    res += (i - nums[i])	# 因此需要将 res 初始值设为 n
 		return res
-        
+# Binary Solution
+	class Solution:
+	    def missingNumber(self, nums: List[int]) -> int:
+		res = len(nums)
+		for i in range(len(nums)):
+		    res ^= nums[i] ^ i
+		return res
+Using the XOR(the exclusive OR operator): 
+	(1,1) or (0,0) -> 0
+	(1,0) or (0,1) -> 1
+	
+For example,
+
+	(5 ^ 5) = (1 0 1)^(1 0 1) = (0 0 0) = 0
+	
+and the order of numbers doesn't matter,
+
+	(5 ^ 3 ^ 5) = (5 ^ 5 ^ 3) = 3
+	
+	
