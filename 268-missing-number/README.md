@@ -48,3 +48,12 @@
 	    def missingNumber(self, nums: List[int]) -> int:
 		n = len(nums)
 		return int(n * (n + 1) * 0.5) - sum(nums)
+		
+# Quicker Way
+	class Solution:
+	    def missingNumber(self, nums: List[int]) -> int:
+		res = len(nums)			# res 初始值设为 nums 的长度 n
+		for i in range(len(nums)): 	# 这里相当于对 0 到 n - 1 进行求和，同时减去 sum(nums)
+		    res += (i - nums[i])	# 因此需要将 res 初始值设为 n
+		return res
+        
