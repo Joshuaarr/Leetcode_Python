@@ -72,5 +72,16 @@
 		    num += 1
 		return res
 
-		
+# 以进位（1，2，4，8，……）为节点循环
+	class Solution:
+	    def countBits(self, n: int) -> List[int]:
+		res = [0]
+		i = 1
+		while len(res) <= n:
+		    m = i
+		    i = i << 1
+		    while m and len(res) <= n:
+			res.append(1 + res[len(res) - i])
+			m -= 1
+		return res
 		
