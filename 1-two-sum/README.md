@@ -48,7 +48,8 @@
     m = {}				#构建空dictionary
     for i,n in enumerate(nums): 	#使用enumerate对nums中元素编号，其中i为编号，n为元素
         diff = target-n			#对每一个n，有diff = target - n
-        if diff in m :			#如果diff在字典m中，则返回m中diff所对应的元素编号
+        if diff in m :			#如果diff在字典 m 中，则返回 m 中 diff 所对应的元素编号
             return[m[diff],i]
         else:				#不在，则将元素n添加到字典中，对应编号为i
             m[n] = i
+要把 n 存储为 key，i 为 value， 否则无法查询到:   m[n] = i
