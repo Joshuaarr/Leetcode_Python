@@ -51,5 +51,4 @@
         if diff in m :			#如果diff在字典 m 中，则返回 m 中 diff 所对应的元素编号
             return[m[diff],i]
         else:				#不在，则将元素n添加到字典中，对应编号为i
-            m[n] = i
-要把 n 存储为 key，i 为 value， 否则无法查询到:   m[n] = i
+            m[n] = i			# 要把 n 存储为 key，i 为 value， 否则无法查询到
