@@ -78,5 +78,17 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 			left = right
 		return profit
 注意在这里指针的设置 left right 为具体的 value，而不是 index，这样可以避免每一个循环都重新查询一遍 left。
+代码可精简为：
+	class Solution:
+	    def maxProfit(self, prices: List[int]) -> int:
+		profit = 0
+		left = prices[0]
+		for r in range(1, len(prices)):
+		    diff = prices[r] - left
+		    if diff > profit:
+			profit = diff
+		    elif diff < 0:
+			left = prices[r]
+		return profit
 
 
