@@ -32,3 +32,14 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If this function is called many times, how would you optimize it?</p>
 </div>
+
+
+# Brute Force
+	class Solution:
+	    def reverseBits(self, n: int) -> int:
+		res = 0
+		for i in range(32):
+		    res = res * 2 + n % 2
+		    n = n >> 1
+		return res
+直接对 n 除以 2 取余数，
