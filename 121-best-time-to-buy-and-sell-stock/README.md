@@ -72,13 +72,14 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 		    i += 1
 		    right = prices[i]
 		    diff = right - left
-		    if diff > profit :
+		    if diff > profit :	# 注意这里的判断条件是大于 profit 和 小于 0，会比 diff 大于 0 时，profit = max(diff, profit)更快些
 			profit = diff
 		    elif diff < 0 :
 			left = right
 		return profit
 注意在这里指针的设置 left right 为具体的 value，而不是 index，这样可以避免每一个循环都重新查询一遍 left。
-代码可精简为：
+
+# 代码可精简为：
 	class Solution:
 	    def maxProfit(self, prices: List[int]) -> int:
 		profit = 0
