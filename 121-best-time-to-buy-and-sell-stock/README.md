@@ -64,8 +64,8 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 	    def maxProfit(self, prices: List[int]) -> int:
 		profit = 0
 		n = len(prices)
-		if n == 1 :		# 特殊情况，只有一天时，不买入不卖出，profit 为 0
-		    return profit
+		#if n == 1 :		# 特殊情况，只有一天时，不买入不卖出，profit 为 0 （这一句不用，n = 1 的情况在下面会直接退出 while 循环输出 profit = 0）
+		#    return profit
 		i = 0
 		left = prices[i] 	# 设置左右指针，当 diff 比 profit 大时，更新 profit，当 diff 小于 0 时，左指针移到右指针处。
 		while i < n-1:		# 每个循环右指针后移一位。
@@ -77,5 +77,6 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 		    elif diff < 0 :
 			left = right
 		return profit
+注意在这里指针的设置 left right 为具体的 value，而不是 index，这样可以避免每一个循环都重新查询一遍 left。
 
 
