@@ -44,7 +44,7 @@
 
 If n = 5, and we start from floor 5:
 
-	0 	1	 2 	3 	4 	5
+			0 	1	 2 	3 	4 	5
 	
 1. Start from 5, there's 1 way to get 5.
 2. Start from 4, there's 1 way to get 5.
