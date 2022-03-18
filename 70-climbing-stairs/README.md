@@ -44,24 +44,24 @@
 
 If n = 5, and we start from floor 5:
 
-	0 1 2 3 4 5
+	0 	1	 2 	3 	4 	5
 	
 1. Start from 5, there's 1 way to get 5.
 2. Start from 4, there's 1 way to get 5.
 3. Start from 3, you can take 1 step to 4 or 2 step to 5, and from 4 or 5, there's 1 way up to 5, so it's:
-
+<pre>
 	1 * 1 + 1 * 1 = 2 ways
-	
+</pre>
 4. Start from 2, it's 1 step to 3 or 2 step to 4, and there's 2 way from 3 and 1 way from 4, so it's:
-
+<pre>
 	1 * 2 + 1 * 1 = 3 ways
-	 
+</pre>	 
 5. Start from 1, it's 1 step to 2 or 2 step to 3, and there's 3 way from 2 and 2 way from 3, so it's:
-
+<pre>
 	1 * 3 + 1 * 2 = 5 ways
-	
+</pre>	
 6. Start from 0, it's 1 step to 1 or 2 step to 2, and there's 5 way from 1 and 3 way from 2, so it's:
-	 
+<pre>	 
 	1 * 5 + 1 * 3 = 8 ways
-	 
+</pre>	 
 Therefore, it's 8 ways in total from floor 0 to 5.
