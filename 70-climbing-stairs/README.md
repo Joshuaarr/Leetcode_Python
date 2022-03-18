@@ -61,7 +61,7 @@ If n = 5, and we start from floor 5:
 	1 * 3 + 1 * 2 = 5 ways
 </pre>	
 6. Start from 0, it's 1 step to 1 or 2 step to 2, and there's 5 way from 1 and 3 way from 2, so it's:
-<pre>	 
+<pre>
 	1 * 5 + 1 * 3 = 8 ways
 </pre>	 
 Therefore, it's 8 ways in total from floor 0 to 5.
