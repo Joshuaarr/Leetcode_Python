@@ -3,9 +3,9 @@ class Solution:
         a, b = 1, 1
         i = n - 1
         while i > 0:
-            num = a + b
-            b = a
-            a = num
+            num = a
+            a = num + b
+            b = num
             i -= 1
         return a
             
