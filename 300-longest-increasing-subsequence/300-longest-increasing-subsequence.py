@@ -1,7 +1,3 @@
-'''
-Dynamic Programming using Depth First Search
-Start at the last index to the first one
-'''
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         # Using another list to save the maxlen of the number
