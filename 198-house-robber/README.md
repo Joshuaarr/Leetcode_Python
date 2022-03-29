@@ -27,3 +27,13 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 	<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
 </ul>
 </div>
+
+# Updating lis of each step
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        lis = [0] * (len(nums) + 2)
+        
+        for i in range(len(nums) - 1, -1, -1):
+            lis[i] += max(lis[i + 2::]) + nums[i]
+        
+        return(max(lis))
