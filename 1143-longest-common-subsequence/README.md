@@ -38,3 +38,30 @@
 	<li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
 </div>
+
+# Botton-up Dynamic Programming solution
+        # Creates a list containing len(text1) + 1 lists, each of len(text2) + 1 items, all set to 0
+        '''
+        If text1 = abcde, text2 = ace :
+        [[0, 0, 0, 0],          [[3, 2, 1, 0],
+         [0, 0, 0, 0],           [2, 2, 1, 0],
+         [0, 0, 0, 0],    ->     [2, 2, 1, 0], 
+         [0, 0, 0, 0],           [1, 1, 1, 0],
+         [0, 0, 0, 0],           [1, 1, 1, 0],
+         [0, 0, 0, 0]]           [0, 0, 0, 0]]
+        '''
+	class Solution:
+	    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+		dp = [[0 for j in range(len(text2) + 1)] for i in range(len(text1) + 1)]
+
+		for i in range(len(text1) - 1, -1, -1):
+		    for j in range(len(text2) - 1, -1, -1):
+			if text1[i] == text2[j]:
+			    dp[i][j] = dp[i + 1][j + 1] + 1
+			else:
+			    dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
+
+		return dp[0][0]
+
+
+
