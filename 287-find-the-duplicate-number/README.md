@@ -43,3 +43,12 @@
 		for i in range(len(nums) - 1):
 		    if nums[i] == nums[i + 1]:
 			return nums[i]
+			
+# Use set() to record (take less time to search value)
+	class Solution:
+	    def findDuplicate(self, nums: List[int]) -> int:
+		temp = set()
+		for num in nums:
+		    if num in temp:
+			return num
+		    temp.add(num)
