@@ -35,6 +35,14 @@
 	<li>Can you solve the problem in linear runtime complexity?</li>
 </ul>
 </div>
+
+# Brute force (TLE)
+	class Solution:
+	    def findDuplicate(self, nums: List[int]) -> int:
+		for i in range(len(nums)):
+		    if nums[i] in nums[i + 1::]:
+			return nums[i]
+
 # Sort before compare
 
 	class Solution:
