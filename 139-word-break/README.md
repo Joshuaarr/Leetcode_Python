@@ -35,3 +35,23 @@ Note that you are allowed to reuse a dictionary word.
 	<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 </ul>
 </div>
+
+# Botton-up Dynamic Programming
+	class Solution:
+	    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+		'''
+		设置 False list 用于标记到位置 i 时后续元素是否可以break为单词
+		对每个字母位倒序逐一检索
+		'''
+		dp = [False] * (len(s) + 1)
+		dp[len(s)] = True
+
+		for i in range(len(s) - 1, -1, -1):
+		    for w in wordDict:
+		# 当 s[i:i+len(w)] == w 且 dp[i + len(w)]为 True 时，该位记为True
+			if (i + len(w)) <= len(s) and s[i : i + len(w)] == w:
+			    dp[i] = dp[i + len(w)]
+		# 当 dp[i] == True 时，break 进入下一位 i
+			if dp[i]:
+			    break
+		return dp[0]
