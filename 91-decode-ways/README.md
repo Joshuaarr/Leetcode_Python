@@ -49,3 +49,57 @@
 	<li><code>s</code> contains only digits and may contain leading zero(s).</li>
 </ul>
 </div>
+
+
+# My way of doing it
+Feel like it can be muck neat if the "if" statement can be narrow down 
+	class Solution:
+	    def numDecodings(self, s: str) -> int:
+
+		def fib(diff: int):
+		    n1, n2 = 1, 1
+		    for i in range(diff - 1):
+			num = n1 + n2
+			n1 = n2
+			n2 = num
+		    return n2
+
+		dp = 1
+		count = 1
+		l, r = 0, 1
+		while r < len(s):
+		    if int(s[l:r+1]) == 10 or int(s[l:r+1]) == 20:
+			l += 2
+			r += 2
+			if count > 1:
+			    dp *= fib(count - 1)
+			count = 1
+		    elif int(s[l:r+1]) % 10 == 0 or int(s[l:r+1]) < 10:
+			return 0
+		    elif int(s[l:r+1]) < 27:
+			l += 1
+			r += 1
+			count += 1
+		    else:
+			l += 1
+			r += 1
+			dp *= fib(count)
+			count = 1
+		if l < len(s):
+		    if s[l] == '0':
+			return 0
+		return dp * fib(count)
+
+# DP solution 
+	class Solution: 
+	    def numDecodings(self, s: str) -> int:
+		dp = [0] * (len(s) + 1)
+		dp[len(s)] = 1
+
+		for i in range(len(s) - 1, -1, -1):
+		    if s[i] != '0':
+			dp[i] = dp[i + 1]
+		    if i + 1 < len(s) and (s[i] == '1' or s[i] == '2' and int(s[i + 1]) <= 6):
+			dp[i] += dp[i + 2]       
+		return dp[0]
+
