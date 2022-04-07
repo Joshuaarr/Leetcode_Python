@@ -57,3 +57,33 @@
 		    prev = curr
 		    curr = nxt
 		return prev
+
+# recursion（递归） T: O(n); M: O(n)
+	class Solution:
+	    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+		'''
+		recursion（递归） T: O(n); M: O(n)
+
+		To breakdown into sub-problems
+		0. sub-sub-problem: (3)   ->   Null
+		   Do nothing
+		1. sub-problem: (2)   ->   (3)   ->
+		   (3)   ->   (2) and (2)   ->   Null 
+		   (3)   ->   (2)   ->   Null   
+		2. whole thing: (1)   ->   (2)   ->   (3)   ->
+		   (2)   ->   (1) and (1)   ->   Null 
+		   (3)   ->   (2)   ->   (1)   ->   Null
+		''' 
+		# base case: if head = null, return none
+		if not head:
+		    return None
+
+		newHead = head
+		if head.next: # if head.next is not null
+		    newHead = self.reverseList(head.next)
+		    head.next.next = head
+		head.next = None
+
+		return newHead
+		
+![IMG_069029CDE1BD-1](https://user-images.githubusercontent.com/48045950/162167856-0dc1e916-4ee2-4f88-8b06-bb35f87e88b2.jpeg)
