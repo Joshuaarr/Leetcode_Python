@@ -31,8 +31,7 @@
 <p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
 </div>
 
-
-#Iteration（迭代） T: O(n); M: O(1)
+# Iteration（迭代） T: O(n); M: O(1)
 
 	# Definition for singly-linked list.
 	# class ListNode:
