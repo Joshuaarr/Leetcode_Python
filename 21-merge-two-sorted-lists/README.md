@@ -54,5 +54,5 @@
 			cur.next = l2      
 			l2 = l2.next       
 		    cur = cur.next         #cur向后移一位
-		    cur.next = l1 or l2    #六号位指向l1或l2（此时其中一个已经为空），剩下的非空与原结果连接
+		cur.next = l1 or l2    #六号位指向l1或l2（此时其中一个已经为空），剩下的非空与原结果连接
 		return dummy.next          #dummy从一号位开始向外报
