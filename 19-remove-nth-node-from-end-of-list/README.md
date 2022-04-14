@@ -59,3 +59,27 @@
 		pin1.next = pin1.next.next
 
 		return dummy.next
+		
+
+# Recursion
+	# Definition for singly-linked list.
+	# class ListNode:
+	#     def __init__(self, val=0, next=None):
+	#         self.val = val
+	#         self.next = next
+	class Solution:
+	    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+		def remove(head, n):
+		    if head == None: return head, 0
+
+		    node, count = remove(head.next, n)
+		    count += 1
+		    head.next = node
+
+		    if count == n: head = head.next
+
+		    return head, count
+
+		return remove(head, n)[0]
+  ![无标题的笔记本-4](https://user-images.githubusercontent.com/48045950/163341698-8fe3d562-4083-41f4-b493-4a83f5dbe0c2.jpg) 
+
