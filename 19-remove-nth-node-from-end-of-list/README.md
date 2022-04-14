@@ -83,5 +83,6 @@
 		return remove(head, n)[0]
 		
 		
-  ![无标题的笔记本-4](https://user-images.githubusercontent.com/48045950/163341698-8fe3d562-4083-41f4-b493-4a83f5dbe0c2.jpg) 
+  ![无标题的笔记本-4](https://user-images.githubusercontent.com/48045950/163342218-87dfaf31-6341-4ca8-b5eb-69bdecef0bc9.jpg)
+
 
