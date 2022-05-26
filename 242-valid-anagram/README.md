@@ -21,3 +21,24 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
 </div>
+
+# Record the frequency of each letters
+	class Solution:
+	    def isAnagram(self, s: str, t: str) -> bool:
+		# set cannot work out, cus dupicate is not allowed in set
+		
+		# Check the length first
+		if len(s) != len(t):
+		    return False
+
+		# Use dictionary, record as record_s{'a':2,'b':1,.....}
+		record_s, record_t = {}, {}
+		for i in range(len(s)):
+		    record_s[s[i]] = 1 + record_s.get(s[i], 0) # get(key,default value), if s[i] not in record_s, return 0.
+		    record_t[t[i]] = 1 + record_t.get(t[i], 0)
+
+		# Compare the two dictionary
+		for record in record_s:
+		    if record_s[record] != record_t.get(record, 0):
+			return False
+		return True
