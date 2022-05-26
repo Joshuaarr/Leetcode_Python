@@ -42,3 +42,31 @@
 		    if record_s[record] != record_t.get(record, 0):
 			return False
 		return True
+
+# Stript the letters one by one (mine not as efficient solution)
+	class Solution:
+	    def isAnagram(self, s: str, t: str) -> bool:
+		if len(s) != len(t):
+		    return False
+
+
+		word_length = len(t)
+		for i in range(word_length):
+		    if t[i] in s:
+			s = s.replace(t[i],'',1)
+
+		if len(s) == 0:
+		    return True
+		return False
+		
+# Using Sorted(less memory used)
+	class Solution:
+	    def isAnagram(self, s: str, t: str) -> bool:
+
+		return sorted(s) == sorted(t)
+		
+# Treating method
+	class Solution:
+	    def isAnagram(self, s: str, t: str) -> bool:
+
+		return Counter(s) == Counter(t) #This function made hashmap and counted frequency 
